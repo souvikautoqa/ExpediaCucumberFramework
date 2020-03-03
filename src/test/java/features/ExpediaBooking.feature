@@ -5,3 +5,5 @@ Feature: Expedia Various Types of Booking
     When I choose Hotel Booking Tab
     And I provide Hotel Booking Information
     Then I should be able to view list of Hotel Search result
+
+

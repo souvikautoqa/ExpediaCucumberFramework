@@ -3,22 +3,28 @@ package steps;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
+import pages.HomePage;
 
 public class HomeSteps {
+    HomePage home = null;
+
+    public HomeSteps() throws Exception {
+        home = new HomePage();
+    }
 
     @Given("^I am navigated to Expedia$")
     public void navigateToExpedia(){
-        System.out.println("Navigate to Expedia");
+        Assert.assertEquals(true,home.ifNavigatedToExpedia());
     }
 
     @When("I choose Hotel Booking Tab")
     public void iChooseHotelBookingTab() {
-        System.out.println("I choose Hotel Booking Tab");
+        home.navigateToHotelTAB();
     }
-
 
     @And("I provide Hotel Booking Information")
     public void iProvideHotelBookingInformation() {
-        System.out.println("I provide Hotel Booking information");
+       home.addHotelBookingInformation();
     }
 }
