@@ -1,20 +1,17 @@
 package steps;
 
 import io.cucumber.java.en.Then;
+import org.junit.Assert;
 import pages.SearchResultPage;
 
-public class SearchResultSteps {
-
-    SearchResultPage resultPage = null;
+public class SearchResultSteps extends BaseStep{
 
     public SearchResultSteps() throws Exception {
-        resultPage = new SearchResultPage();
     }
 
-
     @Then("^I should be able to view list of Hotel Search result$")
-    public void navigateToExpedia(){
-        System.out.println("I should be able to view Search Results");
+    public void navigateToExpedia() throws Exception {
+        Assert.assertEquals(true,getSearchResultPage().verifyIfSearchResultDisplayed());
     }
 
 }

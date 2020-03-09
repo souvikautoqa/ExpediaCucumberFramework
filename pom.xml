@@ -65,6 +65,12 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M4</version>
+                <configuration>
+                    <environmentVariables>
+                        <env>${env}</env>
+                        <browser>${browser}</browser>
+                    </environmentVariables>
+                </configuration>
             </plugin>
         </plugins>
     </build>

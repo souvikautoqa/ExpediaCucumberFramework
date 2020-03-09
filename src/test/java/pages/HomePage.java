@@ -1,5 +1,6 @@
 package pages;
 
+import core.TestConfig;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -15,9 +16,12 @@ public class HomePage extends BasePage {
 
     private WebDriver driver;
 
-    public HomePage() throws Exception {
-        driver = getDriver();
-        launchApp();
+    public HomePage(WebDriver driver) throws Exception {
+        this.driver = driver;
+    }
+
+    public void launchApp(){
+        driver.get(TestConfig.getProperty("appBaseURL"));
     }
 
     public boolean ifNavigatedToExpedia(){
@@ -30,8 +34,8 @@ public class HomePage extends BasePage {
 
     public void addHotelBookingInformation(){
         driver.findElement(hotelDestination).sendKeys("Galway, Galway (county), Ireland");
-        driver.findElement(hotelCheckInDate).sendKeys("03/03/2020");
-        driver.findElement(hotelCheckIOutDate).sendKeys("03/06/2020");
+        driver.findElement(hotelCheckInDate).sendKeys("03/15/2020");
+        driver.findElement(hotelCheckIOutDate).sendKeys("03/20/2020");
         driver.findElement(hotelSearchBtn).click();
     }
 

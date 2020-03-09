@@ -6,25 +6,25 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import pages.HomePage;
 
-public class HomeSteps {
-    HomePage home = null;
+public class HomeSteps extends BaseStep{
 
     public HomeSteps() throws Exception {
-        home = new HomePage();
+    }
+    @Given("^I am navigated to Expedia$")
+    public void navigateToExpedia() throws Exception {
+        getHomePage().launchApp();
+        Assert.assertEquals(true,getHomePage().ifNavigatedToExpedia());
     }
 
-    @Given("^I am navigated to Expedia$")
-    public void navigateToExpedia(){
-        Assert.assertEquals(true,home.ifNavigatedToExpedia());
-    }
 
     @When("I choose Hotel Booking Tab")
-    public void iChooseHotelBookingTab() {
-        home.navigateToHotelTAB();
+    public void iChooseHotelBookingTab() throws Exception {
+        getHomePage().navigateToHotelTAB();
     }
 
     @And("I provide Hotel Booking Information")
-    public void iProvideHotelBookingInformation() {
-       home.addHotelBookingInformation();
+    public void iProvideHotelBookingInformation() throws Exception {
+        getHomePage().addHotelBookingInformation();
     }
+
 }
