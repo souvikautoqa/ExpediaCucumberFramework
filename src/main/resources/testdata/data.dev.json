@@ -1,0 +1,16 @@
+{
+  "testdata" : {
+    "dataset1" : {
+      "city": "Galway, Galway (county), Ireland",
+      "transport" : "Bus"
+    },
+    "dataset2" : {
+      "city": "Dublin, Ireland (DUB)",
+      "transport" : "Flight"
+    },
+    "dataset3" : {
+      "city": "Cork, Ireland (ORK)",
+      "transport" : "Train"
+    }
+  }
+}

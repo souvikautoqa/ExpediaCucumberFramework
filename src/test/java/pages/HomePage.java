@@ -32,8 +32,8 @@ public class HomePage extends BasePage {
         driver.findElement(hotelTab).click();
     }
 
-    public void addHotelBookingInformation(){
-        driver.findElement(hotelDestination).sendKeys("Galway, Galway (county), Ireland");
+    public void addHotelBookingInformation(String destination){
+        driver.findElement(hotelDestination).sendKeys(destination);
         driver.findElement(hotelCheckInDate).sendKeys("03/15/2020");
         driver.findElement(hotelCheckIOutDate).sendKeys("03/20/2020");
         driver.findElement(hotelSearchBtn).click();

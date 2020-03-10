@@ -16,15 +16,14 @@ public class HomeSteps extends BaseStep{
         Assert.assertEquals(true,getHomePage().ifNavigatedToExpedia());
     }
 
-
-    @When("I choose Hotel Booking Tab")
+    @When("^I choose Hotel Booking Tab$")
     public void iChooseHotelBookingTab() throws Exception {
         getHomePage().navigateToHotelTAB();
     }
 
-    @And("I provide Hotel Booking Information")
-    public void iProvideHotelBookingInformation() throws Exception {
-        getHomePage().addHotelBookingInformation();
+    @And("^I provide (.*?) Hotel Booking Information$")
+    public void iProvideHotelBookingInformation(String dataset) throws Exception {
+        getHomePage().addHotelBookingInformation(data(dataset).get("city"));
     }
 
 }
