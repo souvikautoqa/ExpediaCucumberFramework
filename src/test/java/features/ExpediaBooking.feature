@@ -1,5 +1,7 @@
+@ExpediaHome
 Feature: Expedia Various Types of Booking
 
+  @regression
   Scenario Outline: As a user I want to search Hotels in Expedia
     Given I am navigated to Expedia
     When I choose Hotel Booking Tab
@@ -11,6 +13,3 @@ Feature: Expedia Various Types of Booking
       | dataset1 |
       | dataset2 |
       | dataset3 |
-
-
-

@@ -11,7 +11,8 @@ private WebDriver driver = null;
 	
 	public WebDriver getDriver(String browser) {	
 		switch(browser.toLowerCase()) {
-			case "chrome"  : 
+			case "chrome"  :
+				System.setProperty("webdriver.chrome.driver","C:\\drivers\\chromedriver.exe");
 				driver = new ChromeDriver();
 				break;
 			case "firefox" :
@@ -24,7 +25,8 @@ private WebDriver driver = null;
 		}
 		driver.manage().timeouts().pageLoadTimeout(Long.parseLong(TestConfig.getProperty("pageLoadTimeout")), TimeUnit.SECONDS);  // One time config done for the whole project
 		driver.manage().timeouts().implicitlyWait(Long.parseLong(TestConfig.getProperty("implicitWait")), TimeUnit.SECONDS); // One time config
-		return driver;	
+		driver.manage().window().maximize();
+		return driver;
 	}
 	
 	public void quitDriver() {

@@ -1,16 +1,18 @@
 package pages;
 
 import core.TestConfig;
-import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
-public class HomePage extends BasePage {
+public class HomePage {
 
-    By hotelTab = By.xpath(".//button[@id='tab-hotel-tab-hp']");
-    By bundleSearchBtn = By.xpath("(.//span[text()='Search']/..)[3]");
-    By hotelSearchBtn = By.xpath("(.//span[text()='Search']/..)[2]");
-    By hotelDestination = By.xpath(".//input[@id='hotel-destination-hp-hotel']");
+    By hotelTab = By.xpath("//ul[@id='uitk-tabs-button-container']/li[1]");
+    By signInButton = By.xpath("//button[text()='Sign in']");
+    By hotelSearchBtn = By.xpath(".//button[text()='Search']");
+    By goingTo = By.xpath("//button[@aria-label='Going to']");
+
+    By hotelDestination = By.xpath(".//input[@id='location-field-destination']");
     By hotelCheckInDate = By.xpath(".//input[@id='hotel-checkin-hp-hotel']");
     By hotelCheckIOutDate = By.xpath(".//input[@id='hotel-checkout-hp-hotel']");
 
@@ -25,7 +27,7 @@ public class HomePage extends BasePage {
     }
 
     public boolean ifNavigatedToExpedia(){
-        return driver.findElement(bundleSearchBtn).isDisplayed();
+        return driver.findElement(signInButton).isDisplayed();
     }
 
     public void navigateToHotelTAB(){
@@ -33,9 +35,10 @@ public class HomePage extends BasePage {
     }
 
     public void addHotelBookingInformation(String destination){
-        driver.findElement(hotelDestination).sendKeys(destination);
-        driver.findElement(hotelCheckInDate).sendKeys("03/15/2020");
-        driver.findElement(hotelCheckIOutDate).sendKeys("03/20/2020");
+        driver.findElement(goingTo).click();
+        driver.findElement(hotelDestination).sendKeys(destination, Keys.ENTER);
+//        driver.findElement(hotelCheckInDate).sendKeys("03/15/2020");
+//        driver.findElement(hotelCheckIOutDate).sendKeys("03/20/2020");
         driver.findElement(hotelSearchBtn).click();
     }
 

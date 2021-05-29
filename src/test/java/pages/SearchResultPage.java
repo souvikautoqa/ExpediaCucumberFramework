@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import java.util.List;
 
-public class SearchResultPage extends BasePage{
+public class SearchResultPage {
 
     By searchResult = By.xpath(".//ol[contains(@class,'results-list')]//li//h3[@aria-hidden='true']");
 

@@ -19,9 +19,12 @@ public class JSONDataProvider {
     }
 
     public Map<String,String> getAllData(String dataSet){
-        Type type = new TypeToken<HashMap<String, HashMap>>(){}.getType();
-        HashMap<String, HashMap> testData = gson.fromJson(reader, type);
+        Type type = new TypeToken<HashMap<String, HashMap<String,Map>>>(){}.getType();
+
+        HashMap<String, HashMap<String,Map>> testData = gson.fromJson(reader, type);
+
         HashMap testDataMap = testData.get("testdata");
+
         return ((Map) testDataMap.get(dataSet));
     }
 
